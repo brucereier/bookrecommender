@@ -1,1 +1,0 @@
-https://www.goodreads.com/review/list/68733219-{currentUser}?utf8=%E2%9C%93&shelf=read&view=reviews&title={currentUser}&per_page=infinite
