@@ -11,7 +11,7 @@ function BookList() {
         try {
             const response = await axios.get(process.env.REACT_APP_GOOGLE_BOOKS_API_URL, {
             params: {
-                q: 'Fart',
+                q: `isbn: 9780804139038`,
                 key: process.env.REACT_APP_GOOGLE_API_KEY,
             },
             });

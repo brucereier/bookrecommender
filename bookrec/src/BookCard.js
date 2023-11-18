@@ -2,6 +2,13 @@ import React from 'react';
 import {Box} from '@mui/material';
 import { styled } from '@mui/material/styles';
 
+
+const getISBN = (volumeInfo) => {
+    const identifiers = volumeInfo.industryIdentifiers || [];
+    const isbn = identifiers.find(id => id.type === 'ISBN_10' || id.type === 'ISBN_13');
+    return isbn ? isbn.identifier : 'Not Available';
+};
+
 const StyledBox = styled(Box)({
     backgroundColor: '#f5f5f5',
     border: '1px solid #ddd', 
@@ -48,6 +55,7 @@ function BookCard({book}) {
                 <DescriptionBox>
                     <h2>{book.volumeInfo.title} - {book.volumeInfo.authors?.join(', ')}</h2>
                     <p>Genres: {book.volumeInfo.categories?.join(', ')}</p>
+                    <p>ISBN: {getISBN(book.volumeInfo)}</p>
                     <p style={{ margin: 0, WebkitBoxOrient: 'vertical', overflow: 'hidden', textOverflow: 'ellipsis', WebkitLineClamp: 7, display: '-webkit-box' }}>
                     {book.volumeInfo.description}
                     </p>
